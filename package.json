@@ -46,6 +46,7 @@
     "eslint-plugin-ember": "^7.7.2",
     "eslint-plugin-node": "^11.0.0",
     "loader.js": "^4.7.0",
+    "prettier": "^1.19.1",
     "qunit-dom": "^1.0.0"
   },
   "engines": {
@@ -55,6 +56,8 @@
     "edition": "octane"
   },
   "dependencies": {
-    "ember-cli-less": "^2.0.4"
+    "ember-cli-less": "^2.0.4",
+    "paper": "^0.12.4",
+    "tilesheets": "^1.1.0"
   }
 }
