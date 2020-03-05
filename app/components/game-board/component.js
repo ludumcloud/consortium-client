@@ -8,8 +8,7 @@ export default class extends Component {
   boardShape = "random";
   boardSize = "small";
 
-  @tracked
-  _game = null;
+  @tracked _game = null;
 
   constructor() {
     super(...arguments);
@@ -31,20 +30,17 @@ export default class extends Component {
     return this._game;
   }
 
-  @action
-  changeSize(event) {
+  @action changeSize(event) {
     set(this, "boardSize", event.target.value);
     this.newGame();
   }
 
-  @action
-  changeShape(event) {
+  @action changeShape(event) {
     set(this, "boardShape", event.target.value);
     this.newGame();
   }
 
-  @action
-  newGame() {
+  @action newGame() {
     this.game = new Game(this.boardShape, this.boardSize);
   }
 }

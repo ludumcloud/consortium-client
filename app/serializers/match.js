@@ -9,4 +9,10 @@ export default class MatchSerializer extends RESTSerializer {
     };
     return { data };
   }
+
+  serialize(snapshot, options) {
+    let json = super.serialize(...arguments);
+    console.log('SERLIALIZE', json);
+    return json;
+  }
 }
