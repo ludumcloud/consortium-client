@@ -23,6 +23,12 @@ export default class extends Service {
     return 'https://consortium-game-api.herokuapp.com';
   }
 
+  async getAllMatches() {
+    let url = `${this.host}/v1/match`;
+    let res = await fetch(url);
+    return await res.json();
+  }
+
   async getMatch(id) {
     let url = `${this.host}/v1/match/${id}`;
     let res = await fetch(url);

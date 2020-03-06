@@ -1,1 +1,16 @@
-index
+<ul>
+  {{#each @model as |match|}}
+    <li>
+      <LinkTo @route="match" @model={{match.id}}>
+        {{match.id}}
+        [
+        {{#each match.participants as |participant|}}
+          {{participant}}
+        {{/each}}
+        ]
+      </LinkTo>
+    </li>
+  {{/each}}
+</ul>
+
+<LinkTo @route="create">New Game</LinkTo>
