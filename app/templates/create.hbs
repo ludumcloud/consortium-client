@@ -1,2 +1,12 @@
 <h3>Create a new board</h3>
-<button {{on "click" this.createBoard}}>Create</button>
+<div>
+  <label for="size">Board Size:</label>
+  <select id="size" {{on "change" this.setSize}}>
+    <option value="10">10</option>
+    <option value="20">20</option>
+    <option value="30">30</option>
+  </select>
+</div>
+<div>
+  <button {{on "click" this.createBoard}}>Create</button>
+</div>
