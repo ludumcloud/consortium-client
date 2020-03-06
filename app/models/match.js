@@ -1,8 +1,8 @@
-import Model, { attr } from "@ember-data/model";
+import BaseModel from './base'
 
-export default class MatchModel extends Model {
-  @attr participants;
-  @attr __map__;
+export default class extends BaseModel {
+  participants = null;
+  __map__ = null;
 
   cachedGrid = null;
 
@@ -15,6 +15,9 @@ export default class MatchModel extends Model {
       return this.cachedGrid;
     }
     let map = this.__map__;
+    if (!map) {
+      return [ [] ];
+    }
     let { width, height } = map;
     let grid = [...new Array(height)].map(() => [...new Array(width)]);
     map.__tiles__.forEach(tile => {
