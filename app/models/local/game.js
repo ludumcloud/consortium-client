@@ -1,6 +1,7 @@
 import GameModel from "./base";
 import BoardGenerator from "../../map/board-generator";
 
+// eslint-disable-next-line no-unused-vars
 const sizes = {
   square: {
     small: 10,

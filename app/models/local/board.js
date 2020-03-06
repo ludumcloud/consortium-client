@@ -9,7 +9,7 @@ export default class extends GameModel {
     this.grid = grid;
   }
 
-  lookupHex({ x, y, z }) {
+  lookupHex({ x, z }) {
     const col = x + (z + (z & 1)) / 2;
     const row = z;
     const grid = this.grid;

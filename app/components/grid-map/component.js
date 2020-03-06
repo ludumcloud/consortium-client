@@ -23,7 +23,6 @@ export default class GridMap extends Component {
 
   get grid() {
     this._grid = generateGrid(this.size);
-    console.log(this._grid);
     return this._grid;
   }
 

@@ -7,6 +7,16 @@ export default class App extends Application {
   modulePrefix = config.modulePrefix;
   podModulePrefix = config.podModulePrefix;
   Resolver = Resolver;
+
+  constructor() {
+    super(...arguments);
+
+    window.App = this;
+  }
+
+  serviceFor(name) {
+    return this.__container__.lookup(`service:${name}`);
+  }
 }
 
 loadInitializers(App, config.modulePrefix);

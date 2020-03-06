@@ -4,6 +4,7 @@ import { inject as service } from '@ember/service';
 
 export default class CreateController extends Controller {
   @service api;
+  @service logger;
 
   @action
   async createBoard() {
@@ -13,6 +14,6 @@ export default class CreateController extends Controller {
       "height": 30,
       "width": 30
     });
-    console.log("Created match", match);
+    this.logger.log("Created match", match);
   }
 }

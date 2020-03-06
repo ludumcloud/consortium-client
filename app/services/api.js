@@ -35,4 +35,30 @@ export default class extends Service {
     let json = await post(url, params);
     return Match.create(json);
   }
+
+  /**
+   * Create an account
+   * @param {object} data signup information
+   * @param {string} data.username
+   * @param {string} data.password
+   * @param {string} data.email
+   * @param {string} data.name
+   */
+  async signup(data) {
+    let url = `${this.host}/v1/auth/signup`;
+    let json = post(url, data);
+    return json;
+  }
+
+  /**
+   * Login
+   * @param {object} data login information
+   * @param {string} data.email
+   * @param {string} data.password
+   */
+  async login(data) {
+    let url = `${this.host}/v1/auth/login`;
+    let json = post(url, data);
+    return json;
+  }
 }
