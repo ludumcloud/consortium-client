@@ -10,5 +10,5 @@ Router.map(function() {
   this.route('login');
   this.route('register');
   this.route('create');
-  this.route('match', { path: '/match/:id'});
+  this.route('match', { path: '/match/:id' });
 });
