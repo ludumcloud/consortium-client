@@ -1,1 +1,27 @@
-register
+<form class="form" {{on "submit" this.createAccount}}>
+  <div class="form-entry">
+    <label for="email">Email</label>
+    <Input id="email" type="email" placeholder="email@example.com" @value={{mut this.email}} />
+  </div>
+
+  <div class="form-entry">
+    <label for="name">Name</label>
+    <Input id="name" type="text" placeholder="Marcus Aurelius" @value={{mut this.name}} />
+  </div>
+
+  <div class="form-entry">
+    <label for="password">Password</label>
+    <Input id="password" type="password" placeholder="" @value={{mut this.password}} />
+  </div>
+
+  <div class="form-entry">
+    <label for="confirm-password">Confirm password</label>
+    <Input id="confirm-password" type="password" placeholder="" @value={{mut this.passwordConfirm}} />
+  </div>
+
+  <div class="form-entry">
+    <button type="submit">
+      Register
+    </button>
+  </div>
+</form>

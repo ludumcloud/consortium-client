@@ -1,5 +1,5 @@
 import Controller from '@ember/controller';
-import { action } from "@ember/object";
+import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 
 export default class CreateController extends Controller {
@@ -8,12 +8,13 @@ export default class CreateController extends Controller {
 
   size = 10;
 
-  @action async createBoard() {
+  @action
+  async createBoard() {
     let match = await this.api.createMatch({
-      "participants": [1],
-      "exponent": 3.5,
-      "height": this.size,
-      "width": this.size
+      participants: [1],
+      exponent: 3.5,
+      height: this.size,
+      width: this.size
     });
     this.transitionToRoute('match', match);
   }
