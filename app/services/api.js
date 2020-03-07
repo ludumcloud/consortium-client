@@ -23,7 +23,7 @@ export default class extends Service {
     if (this.application.debug.host) {
       return this.application.debug.host;
     }
-    return 'https://consortium-game-api.herokuapp.com';
+    return 'https://consortium-rest-api.herokuapp.com';
   }
 
   async getAllMatches() {
