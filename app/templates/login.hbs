@@ -1,1 +1,17 @@
-login
+<form class="form" {{on "submit" this.createAccount}}>
+  <div class="form-entry">
+    <label for="email">Email</label>
+    <Input id="email" type="email" placeholder="email@example.com" @value={{mut this.email}} />
+  </div>
+
+  <div class="form-entry">
+    <label for="password">Password</label>
+    <Input id="password" type="password" placeholder="" @value={{mut this.password}} />
+  </div>
+
+  <div class="form-entry">
+    <button type="submit">
+      Login
+    </button>
+  </div>
+</form>

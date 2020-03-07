@@ -2,7 +2,7 @@ import Service, { inject as service } from '@ember/service';
 
 import Match from '../models/match';
 
-async function post(url, data) {
+async function post(url, data, type = 'json') {
   let res = await fetch(url, {
     body: JSON.stringify(data),
     method: 'POST',
@@ -10,6 +10,9 @@ async function post(url, data) {
       'Content-Type': 'application/json'
     })
   });
+  if (type === 'text') {
+    return res.text();
+  }
   return res.json();
 }
 
@@ -64,7 +67,7 @@ export default class extends Service {
    */
   async login(data) {
     let url = `${this.host}/v1/auth/login`;
-    let json = post(url, data);
+    let json = post(url, data, 'text');
     return json;
   }
 }

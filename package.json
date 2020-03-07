@@ -43,6 +43,7 @@
     "ember-resolver": "^7.0.0",
     "ember-simple-auth": "^3.0.0",
     "ember-source": "~3.16.0",
+    "ember-truth-helpers": "^2.1.0",
     "eslint-plugin-ember": "^7.7.2",
     "eslint-plugin-node": "^11.0.0",
     "glob": "^4.0.5",
@@ -59,6 +60,7 @@
   },
   "dependencies": {
     "ember-cli-less": "^2.0.4",
+    "jwt-decode": "^2.2.0",
     "paper": "^0.12.4",
     "tilesheets": "^1.1.0"
   }

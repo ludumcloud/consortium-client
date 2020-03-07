@@ -1,15 +1,23 @@
-<nav class="nav-banner">
-    <span class="game-title">CONSORTIUM</span>
+<nav class='nav-banner'>
+  <span class='game-title'>
+    CONSORTIUM
+  </span>
 
-    <div class="session-info">
-      {{#link-to "login"}}
+  <div class='session-info'>
+    {{#if @session.isAuthenticated}}
+      Welcome, {{@session.user.username}}
+      <span>|</span>
+      <button type="button" {{on "click" @session.logout}}>Logout</button>
+    {{else}}
+      {{#link-to 'login'}}
         Login
       {{/link-to}}
       <span>
         |
       </span>
-      {{#link-to "register"}}
+      {{#link-to 'register'}}
         Register
       {{/link-to}}
-    </div>
+    {{/if}}
+  </div>
 </nav>

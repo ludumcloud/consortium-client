@@ -17,6 +17,10 @@ export default class App extends Application {
   serviceFor(name) {
     return this.__container__.lookup(`service:${name}`);
   }
+
+  controllerFor(name) {
+    return this.__container__.lookup(`controller:${name}`);
+  }
 }
 
 loadInitializers(App, config.modulePrefix);

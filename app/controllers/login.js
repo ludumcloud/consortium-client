@@ -8,13 +8,11 @@ function isEmpty(value) {
 }
 
 export default class extends Controller {
-  @service api;
   @service logger;
+  @service session;
 
   @tracked email = '';
-  @tracked username = '';
   @tracked password = '';
-  @tracked passwordConfirm = '';
 
   @action
   async createAccount(event) {
@@ -25,18 +23,9 @@ export default class extends Controller {
       return;
     }
 
-    this.logger.log('create', {
-      email: this.email,
-      username: this.username,
-      password: this.password,
-      passwordConfirm: this.passwordConfirm
-    });
-
     try {
-      await this.api.signup({
-        name: this.username,
+      await this.session.login({
         email: this.email,
-        username: this.username,
         password: this.password
       });
 
@@ -44,23 +33,16 @@ export default class extends Controller {
 
       this.transitionToRoute('index');
     } catch (e) {
-      this.logger.error('Signup error:', e);
+      this.logger.error('Login error:', e);
     }
   }
 
   get isValid() {
-    return (
-      !isEmpty(this.username) &&
-      !isEmpty(this.email) &&
-      !isEmpty(this.password) &&
-      this.password === this.passwordConfirm
-    );
+    return !isEmpty(this.email) && !isEmpty(this.password);
   }
 
   reset() {
     this.email = '';
-    this.username = '';
     this.password = '';
-    this.passwordConfirm = '';
   }
 }
