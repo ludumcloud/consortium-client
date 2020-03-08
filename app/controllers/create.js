@@ -13,8 +13,8 @@ export default class CreateController extends Controller {
     let match = await this.api.createMatch({
       participants: [1],
       exponent: 3.5,
-      height: this.size,
-      width: this.size
+      height: parseInt(this.size, 10),
+      width: parseInt(this.size, 10)
     });
     this.transitionToRoute('match', match);
   }
