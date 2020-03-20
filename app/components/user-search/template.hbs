@@ -6,8 +6,21 @@
   @key-up={{fn this.search}}
 />
 
-{{#if this.users}}
-  {{#each this.users as |user|}}
-    {{user.name}}<br>
-  {{/each}}
+{{#if this.results}}
+  <ul class="dropdown show">
+    {{#each this.results as |result|}}
+      <li class="result">
+        <button class="text" {{action this.selectResult result}}>
+          <span class="value">
+            {{result.user.name}}
+          </span>
+          {{#if result.selected}}
+            <span class="decorator">
+              ✔
+            </span>
+          {{/if}}
+        </button>
+      </li>
+    {{/each}}
+  </ul>
 {{/if}}
