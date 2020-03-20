@@ -1,0 +1,13 @@
+<Input
+  @autocomplete="off"
+  @type="text"
+  @placeholder="Username..."
+  @value={{this.query}}
+  @key-up={{fn this.search}}
+/>
+
+{{#if this.users}}
+  {{#each this.users as |user|}}
+    {{user.name}}<br>
+  {{/each}}
+{{/if}}

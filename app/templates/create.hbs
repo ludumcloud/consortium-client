@@ -1,12 +1,32 @@
-<h3>Create a new board</h3>
-<div>
-  <label for="size">Board Size:</label>
-  <select id="size" {{on "change" this.setSize}}>
-    <option value="10">10</option>
-    <option value="20">20</option>
-    <option value="30">30</option>
-  </select>
-</div>
-<div>
-  <button type="button" {{on "click" this.createBoard}}>Create</button>
+<div class="create-form">
+  <h3>
+    Create a new board
+  </h3>
+  <div>
+    <label for="size">
+      Board Size:
+    </label>
+    <select id="size" {{on "change" this.setSize}}>
+      <option value="10">
+        10
+      </option>
+      <option value="20">
+        20
+      </option>
+      <option value="30">
+        30
+      </option>
+    </select>
+  </div>
+
+  <div>
+    <label>Players</label>
+    <UserSearch />
+  </div>
+
+  <div>
+    <button type="button" {{on "click" this.createBoard}}>
+      Create
+    </button>
+  </div>
 </div>
