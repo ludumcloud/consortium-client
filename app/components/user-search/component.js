@@ -23,8 +23,12 @@ export default class extends Component {
   }
 
   @action
-  selectResult(result) {
+  selectResult(result, cb) {
     set(result, 'selected', !result.selected);
+
+    if (cb) {
+      cb(result.user);
+    }
   }
 
   get results() {

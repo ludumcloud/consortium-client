@@ -10,7 +10,7 @@
   <ul class="dropdown show">
     {{#each this.results as |result|}}
       <li class="result">
-        <button class="text" {{action this.selectResult result}}>
+        <button class="text" {{action this.selectResult result this.args.onSelect}}>
           <span class="value">
             {{result.user.name}}
           </span>
