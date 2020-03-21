@@ -1,0 +1,199 @@
+/* -----------------------------------------------------
+   created with https://www.codeandweb.com/texturepacker
+   -----------------------------------------------------
+   $TexturePacker:SmartUpdate:327d29f976316e41dc597709b10f7ce0:065a793a0027b804a8d723869c8e52f3:a4f667ca027e49bba4af02ee739a8a68$
+   -----------------------------------------------------
+
+   usage: <span class="{-spritename-} sprite"></span>
+
+   replace {-spritename-} with the sprite you like to use
+
+*/
+
+.sprite {
+  display: inline-block;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-image: url(/tiles/pixel.png);
+}
+
+.dirt-flat {
+  width: 18px;
+  height: 22px;
+  background-position: -1px -102px;
+}
+.dirt-iso {
+  width: 18px;
+  height: 22px;
+  background-position: -21px -102px;
+}
+.dirt-left-ramp {
+  width: 18px;
+  height: 20px;
+  background-position: -1px -14px;
+}
+.dirt-right-ramp {
+  width: 18px;
+  height: 20px;
+  background-position: -21px -14px;
+}
+.grass-iso {
+  width: 18px;
+  height: 22px;
+  background-position: -1px -126px;
+}
+.grass-flat {
+  width: 18px;
+  height: 22px;
+  background-position: -41px -102px;
+}
+.grass-left-ramp {
+  width: 18px;
+  height: 20px;
+  background-position: -41px -14px;
+}
+.horse {
+  width: 12px;
+  height: 11px;
+  background-position: -33px -1px;
+}
+.grass-right-ramp {
+  width: 18px;
+  height: 20px;
+  background-position: -1px -36px;
+}
+.knight {
+  width: 8px;
+  height: 9px;
+  background-position: -23px -1px;
+}
+.lava-1 {
+  width: 18px;
+  height: 23px;
+  background-position: -1px -198px;
+}
+.lava-2 {
+  width: 18px;
+  height: 23px;
+  background-position: -21px -198px;
+}
+.lava-3 {
+  width: 18px;
+  height: 23px;
+  background-position: -41px -198px;
+}
+.sand-right-ramp {
+  width: 18px;
+  height: 20px;
+  background-position: -21px -58px;
+}
+.lava-4 {
+  width: 18px;
+  height: 23px;
+  background-position: -1px -223px;
+}
+.magic-flat {
+  width: 18px;
+  height: 22px;
+  background-position: -21px -126px;
+}
+.magic-iso {
+  width: 18px;
+  height: 22px;
+  background-position: -41px -126px;
+}
+.magic-left-ramp {
+  width: 18px;
+  height: 20px;
+  background-position: -21px -36px;
+}
+.magic-right-ramp {
+  width: 18px;
+  height: 20px;
+  background-position: -41px -36px;
+}
+.snow-flat {
+  width: 18px;
+  height: 22px;
+  background-position: -41px -150px;
+}
+.sand-flat {
+  width: 18px;
+  height: 22px;
+  background-position: -1px -150px;
+}
+.sand-iso {
+  width: 18px;
+  height: 22px;
+  background-position: -21px -150px;
+}
+.sand-left-ramp {
+  width: 18px;
+  height: 20px;
+  background-position: -1px -58px;
+}
+.shrub {
+  width: 10px;
+  height: 7px;
+  background-position: -11px -1px;
+}
+.shrub-2 {
+  width: 8px;
+  height: 7px;
+  background-position: -1px -1px;
+}
+.snow-iso {
+  width: 18px;
+  height: 22px;
+  background-position: -1px -174px;
+}
+.snow-left-ramp {
+  width: 18px;
+  height: 20px;
+  background-position: -41px -58px;
+}
+.snow-right-ramp {
+  width: 18px;
+  height: 20px;
+  background-position: -1px -80px;
+}
+.stone-iso {
+  width: 18px;
+  height: 22px;
+  background-position: -41px -174px;
+}
+.stone-flat {
+  width: 18px;
+  height: 22px;
+  background-position: -21px -174px;
+}
+.stone-left-ramp {
+  width: 18px;
+  height: 20px;
+  background-position: -21px -80px;
+}
+.stone-right-ramp {
+  width: 18px;
+  height: 20px;
+  background-position: -41px -80px;
+}
+.water-2 {
+  width: 18px;
+  height: 23px;
+  background-position: -41px -223px;
+}
+.water-1 {
+  width: 18px;
+  height: 23px;
+  background-position: -21px -223px;
+}
+.water-3 {
+  width: 18px;
+  height: 23px;
+  background-position: -1px -248px;
+}
+.water-4 {
+  width: 18px;
+  height: 23px;
+  background-position: -21px -248px;
+}

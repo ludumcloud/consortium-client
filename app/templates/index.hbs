@@ -5,7 +5,7 @@
         {{match.id}}
         [
         {{#each match.participants as |participant|}}
-          {{participant}}
+          {{participant.user.name}}
         {{/each}}
         ]
       </LinkTo>
@@ -13,4 +13,6 @@
   {{/each}}
 </ul>
 
-<LinkTo @route="create">New Game</LinkTo>
+<p>
+  <LinkTo @route="create">New Game</LinkTo>
+</p>

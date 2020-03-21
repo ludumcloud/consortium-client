@@ -1,0 +1,20 @@
+.square-board {
+  .sprite {
+    image-rendering: pixelated;
+  }
+
+  .square-grid {
+    transform: scale(2);
+    transform-origin: top left;
+
+    .row {
+      display: flex;
+
+      margin-top: -8px;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+}

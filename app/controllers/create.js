@@ -44,8 +44,6 @@ export default class CreateController extends Controller {
     } else {
       this.users.push(user);
     }
-
-    console.log(this.users);
   }
 
   reset() {

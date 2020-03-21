@@ -62,6 +62,7 @@
     "ember-cli-less": "^2.0.4",
     "jwt-decode": "^2.2.0",
     "paper": "^0.12.4",
+    "pixi.js": "^5.2.1",
     "skeleton-css": "^2.0.4",
     "tilesheets": "^1.1.0"
   }

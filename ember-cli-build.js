@@ -7,6 +7,8 @@ module.exports = function(defaults) {
     // Add options here
   });
 
+  app.import('public/tiles/pixel.css');
+
   app.import('node_modules/skeleton-css/css/normalize.css');
   app.import('node_modules/skeleton-css/css/skeleton.css');
 

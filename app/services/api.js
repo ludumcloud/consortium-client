@@ -91,6 +91,12 @@ export default class extends Service {
     return json;
   }
 
+  async info() {
+    let url = `${this.host}/v1/auth/info`;
+    let json = this.get(url, {}, 'json');
+    return json;
+  }
+
   /**
    * Search
    * @param {string} type

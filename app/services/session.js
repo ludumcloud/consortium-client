@@ -43,6 +43,10 @@ export default class extends Service {
     return this.user;
   }
 
+  async info() {
+    return this.api.info();
+  }
+
   get isAuthenticated() {
     return !!this.user && !!this.accessToken;
   }

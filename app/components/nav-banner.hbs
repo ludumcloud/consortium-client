@@ -1,13 +1,17 @@
 <nav class='nav-banner'>
-  <span class='game-title'>
+  <LinkTo @route='index' class='game-title'>
     CONSORTIUM
-  </span>
+  </LinkTo>
 
   <div class='session-info'>
     {{#if @session.isAuthenticated}}
       Welcome, {{@session.user.username}}
-      <span>|</span>
-      <button type="button" {{on "click" @session.logout}}>Logout</button>
+      <span>
+        |
+      </span>
+      <button type='button' {{on 'click' @session.logout}}>
+        Logout
+      </button>
     {{else}}
       {{#link-to 'login'}}
         Login
