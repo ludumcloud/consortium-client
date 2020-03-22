@@ -1,4 +1,5 @@
 import Service, { inject as service } from '@ember/service';
+import { reject } from 'rsvp';
 
 import Match from '../models/match';
 
@@ -22,6 +23,9 @@ export default class extends Service {
         Authorization: `bearer ${this.session.accessToken}`
       })
     });
+    if (res.status === 401) {
+      return reject(res);
+    }
     if (type === 'text') {
       return res.text();
     }
@@ -41,6 +45,9 @@ export default class extends Service {
         Authorization: `bearer ${this.session.accessToken}`
       })
     });
+    if (res.status === 401) {
+      return reject(res);
+    }
     if (type === 'text') {
       return res.text();
     }

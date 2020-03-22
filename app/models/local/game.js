@@ -1,5 +1,5 @@
-import GameModel from "./base";
-import BoardGenerator from "../../map/board-generator";
+import GameModel from './base';
+import BoardGenerator from '../../map/board-generator';
 
 // eslint-disable-next-line no-unused-vars
 const sizes = {
@@ -28,21 +28,24 @@ export default class extends GameModel {
   match = null;
   activeHex = null;
 
-  constructor(match, boardShape = "square") {
+  constructor(match, boardShape = 'square') {
     super();
-
-    this.id = "1";
 
     const width = match.size;
 
+    this.id = match.id;
     this.players = [];
     this.match = match;
     this.board = BoardGenerator.generate(width, boardShape);
   }
 
+  get size() {
+    return this.match.size;
+  }
+
   get phase() {
     return {
-      gamePhase: "gameStart",
+      gamePhase: 'gameStart',
       activePlayer: null,
       activePlayerIndex: null,
       turn: 0
@@ -53,7 +56,7 @@ export default class extends GameModel {
 
   /* Public Function API */
   clickHex(hex) {
-    const active = this.get("activeHex");
+    const active = this.get('activeHex');
     if (active !== hex) {
       this.deactivateHex(active);
       this.activateHex(hex);
@@ -66,11 +69,11 @@ export default class extends GameModel {
 
   activateHex(hex) {
     if (hex) {
-      hex.state = "active";
+      hex.state = 'active';
       hex.coord.adjacentCoords().forEach(coord => {
         const adjacentHex = this.board.lookupHex(coord);
         if (adjacentHex) {
-          adjacentHex.state = "secondary";
+          adjacentHex.state = 'secondary';
         }
       });
     }
@@ -82,7 +85,7 @@ export default class extends GameModel {
       hex.coord.adjacentCoords().forEach(coord => {
         const adjacentHex = this.board.lookupHex(coord);
         if (adjacentHex) {
-          adjacentHex.state = "null";
+          adjacentHex.state = 'null';
         }
       });
     }

@@ -8,7 +8,13 @@ export default class IndexRoute extends Route {
   beforeModel() {
     if (!this.session.isAuthenticated) {
       this.transitionTo('login');
+      return;
     }
+
+    return this.session.info().catch(() => {
+      this.session.logout();
+      this.transitionTo('login');
+    });
   }
 
   async model() {

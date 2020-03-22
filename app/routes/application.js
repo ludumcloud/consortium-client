@@ -8,7 +8,6 @@ export default class extends Route {
 
   async beforeModel() {
     this.session.restoreSession();
-    await this.session.info();
 
     if (!this.session.isAuthenticated) {
       this.transitionTo('login');

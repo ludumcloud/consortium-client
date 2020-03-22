@@ -67,7 +67,6 @@ export default class extends Service {
   }
 
   drawGrid(grid) {
-    console.log(grid);
     let spritesheet = this.app.resources.spritesheet;
 
     grid.forEach((row, idx) => {

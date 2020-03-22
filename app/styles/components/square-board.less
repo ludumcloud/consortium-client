@@ -1,62 +1,16 @@
 .square-board {
   .square-grid {
+    // transform: scale(1.5);
+    // transform-origin: top left;
+    zoom: 1.75;
+
+    image-rendering: pixelated;
+
     .row {
       display: flex;
 
-      margin-top: -32px;
-
-      &:first-child {
-        margin-top: 0;
-      }
-
       > .sprite {
         position: relative;
-      }
-    }
-  }
-
-  .group {
-    position: absolute;
-
-    &.forest {
-      zoom: 0.4;
-      top: 0;
-      left: 36px;
-
-      .sprite {
-        position: absolute;
-        z-index: 1;
-
-        &:nth-child(1) {
-          top: 15px;
-          left: 20px;
-          z-index: 3;
-        }
-
-        &:nth-child(2) {
-          top: 5px;
-          left: 0;
-          z-index: 2;
-        }
-
-        &:nth-child(3) {
-          top: 2px;
-          left: 40px;
-          z-index: 1;
-        }
-      }
-
-      &:after {
-        content: ' ';
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        background-color: rgba(0, 0, 0, 0.3);
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-
-        position: absolute;
-        top: 75px;
-        left: 25px;
       }
     }
   }

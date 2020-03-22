@@ -7,7 +7,7 @@ module.exports = function(defaults) {
     // Add options here
   });
 
-  app.import('public/tiles/square.css');
+  app.import('public/tiles/rpg.css');
 
   app.import('node_modules/skeleton-css/css/normalize.css');
   app.import('node_modules/skeleton-css/css/skeleton.css');

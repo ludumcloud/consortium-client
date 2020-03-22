@@ -1,8 +1,11 @@
 import Component from '@glimmer/component';
+import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import { later } from '@ember/runloop';
 
 export default class extends Component {
+  @service logger;
+
   @tracked
   tileClass = null;
 
@@ -29,21 +32,26 @@ export default class extends Component {
     // Weird bug in the server for old matches
     let biome = tile.biome && tile.biome.toLowerCase();
 
-    let tileClass = 'grass';
+    let tileClass = 'grass-1';
 
     if (landform === 'plain') {
-      tileClass = 'grass';
+      // if (biome === 'forest') {
+      //   tileClass = 'tree-grass-3';
+      // } else {
+      //   tileClass = 'grass-1';
+      // }
+      tileClass = 'grass-1';
     } else if (landform === 'depression') {
       if (!biome || biome === 'beach') {
-        tileClass = 'sand';
+        tileClass = 'sand-1';
       } else {
         tileClass = 'water-1';
       }
     } else if (landform === 'mountain') {
       if (biome === 'bare') {
-        tileClass = 'stone';
+        tileClass = 'grass-hills';
       } else {
-        tileClass = 'snow';
+        tileClass = 'snow-1';
       }
     }
 
@@ -53,9 +61,9 @@ export default class extends Component {
   animateOceanTile() {
     let order = [
       'tile-water-1',
-      'tile-water-2',
-      'tile-water-3',
-      'tile-water-4'
+      'tile-water-2'
+      // 'tile-water-3',
+      // 'tile-water-4'
     ];
     function changeTile() {
       let idx = order.indexOf(this.tileClass) + 1;
