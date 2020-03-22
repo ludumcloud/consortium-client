@@ -1,1 +1,9 @@
-<span class="sprite {{this.tileClass}}"></span>
+<div class="sprite {{this.tileClass}}">
+  {{#if (eq this.type "forest")}}
+    <div class="group {{this.type}}">
+      <span class="sprite foliage-tree-green"></span>
+      <span class="sprite foliage-tree-green"></span>
+      <span class="sprite foliage-tree-green"></span>
+    </div>
+  {{/if}}
+</div>

@@ -4,21 +4,11 @@ import { inject as service } from '@ember/service';
 export default class extends Route {
   @service session;
 
-  async beforeModel(transition) {
-    this.session.restoreSession();
+  actions = {};
 
-    try {
-      await this.session.info();
-      if (
-        transition.targetName === 'login' ||
-        transition.targetName === 'register'
-      ) {
-        this.transitionTo('index');
-      }
-    } catch (_) {
-      this.session.logout();
-      this.transitionTo('login');
-    }
+  async beforeModel() {
+    this.session.restoreSession();
+    await this.session.info();
 
     if (!this.session.isAuthenticated) {
       this.transitionTo('login');

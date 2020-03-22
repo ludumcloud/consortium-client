@@ -17,38 +17,46 @@ export default class extends Component {
     }
   }
 
+  get type() {
+    // Weird api bug
+    return this.args.tile.biome ? this.args.tile.biome.toLowerCase() : 'beach';
+  }
+
   setTileClass() {
     let tile = this.args.tile;
     let landform = tile.landform.toLowerCase();
 
     // Weird bug in the server for old matches
-    let biome =
-      landform === 'depression' && !tile.biome
-        ? 'beach'
-        : tile.biome.toLowerCase();
+    let biome = tile.biome && tile.biome.toLowerCase();
 
-    let tileClass = 'grass-iso';
+    let tileClass = 'grass';
 
     if (landform === 'plain') {
-      tileClass = 'grass-iso';
+      tileClass = 'grass';
     } else if (landform === 'depression') {
-      if (biome === 'beach') {
-        tileClass = 'sand-iso';
+      if (!biome || biome === 'beach') {
+        tileClass = 'sand';
+      } else {
+        tileClass = 'water-1';
       }
-      tileClass = 'water-1';
     } else if (landform === 'mountain') {
       if (biome === 'bare') {
-        tileClass = 'stone-iso';
+        tileClass = 'stone';
+      } else {
+        tileClass = 'snow';
       }
-
-      tileClass = 'snow-iso';
     }
 
-    this.tileClass = tileClass;
+    this.tileClass = `tile-${tileClass}`;
   }
 
   animateOceanTile() {
-    let order = ['water-1', 'water-2', 'water-3', 'water-4'];
+    let order = [
+      'tile-water-1',
+      'tile-water-2',
+      'tile-water-3',
+      'tile-water-4'
+    ];
     function changeTile() {
       let idx = order.indexOf(this.tileClass) + 1;
       if (idx === order.length) {
