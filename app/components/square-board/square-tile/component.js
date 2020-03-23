@@ -15,9 +15,9 @@ export default class extends Component {
     this.setTileClass();
 
     // Lets animate water...
-    if (this.args.tile.biome === 'ocean') {
-      this.animateOceanTile();
-    }
+    // if (this.args.tile.biome === 'ocean') {
+    //   this.animateOceanTile();
+    // }
   }
 
   get type() {
@@ -35,15 +35,59 @@ export default class extends Component {
     let tileClass = 'grass-1';
 
     if (landform === 'plain') {
-      // if (biome === 'forest') {
-      //   tileClass = 'tree-grass-3';
-      // } else {
-      //   tileClass = 'grass-1';
+      if (biome === 'forest') {
+        tileClass = 'tree-grass-3';
+      } else {
+        tileClass = 'grass-1';
+      }
+      // tileClass = 'grass-1';
+      // if (tile.isEdge) {
+      //   if (tile.isTopEdge) {
+      //     tileClass = 'grass-edge-top';
+
+      //     if (tile.isLeftEdge) {
+      //       tileClass = 'grass-edge-top-left';
+      //     } else if (tile.isRightEdge) {
+      //       tileClass = 'grass-edge-top-right';
+      //     }
+      //   } else if (tile.isBottomEdge) {
+      //     tileClass = 'grass-edge-bottom';
+      //     if (tile.isLeftEdge) {
+      //       tileClass = 'grass-edge-bottom-left';
+      //     } else if (tile.isRightEdge) {
+      //       tileClass = 'grass-edge-bottom-right';
+      //     }
+      //   } else if (tile.isLeftEdge) {
+      //     tileClass = 'grass-edge-left';
+      //   } else if (tile.isRightEdge) {
+      //     tileClass = 'grass-edge-right';
+      //   }
       // }
-      tileClass = 'grass-1';
     } else if (landform === 'depression') {
       if (!biome || biome === 'beach') {
         tileClass = 'sand-1';
+        // if (tile.isEdge) {
+        //   if (tile.isTopEdge) {
+        //     tileClass = 'sand-edge-top';
+
+        //     if (tile.isLeftEdge) {
+        //       tileClass = 'sand-edge-top-left';
+        //     } else if (tile.isRightEdge) {
+        //       tileClass = 'sand-edge-top-right';
+        //     }
+        //   } else if (tile.isBottomEdge) {
+        //     tileClass = 'sand-edge-bottom';
+        //     if (tile.isLeftEdge) {
+        //       tileClass = 'sand-edge-bottom-left';
+        //     } else if (tile.isRightEdge) {
+        //       tileClass = 'sand-edge-bottom-right';
+        //     }
+        //   } else if (tile.isLeftEdge) {
+        //     tileClass = 'sand-edge-left';
+        //   } else if (tile.isRightEdge) {
+        //     tileClass = 'sand-edge-right';
+        //   }
+        // }
       } else {
         tileClass = 'water-1';
       }

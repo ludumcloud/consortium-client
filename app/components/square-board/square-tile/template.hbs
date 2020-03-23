@@ -1,5 +1,13 @@
-<div class="sprite {{this.tileClass}}">
-  {{#if (eq this.type "forest")}}
-    <div class="sprite tile-tree-grass-pointed-3"></div>
+<div class="sprite {{this.tileClass}}" data-x={{@tile.x}} data-y={{@tile.y}}>
+  {{#if (and (eq @tile.x 4) (eq @tile.y 8))}}
+    <div class="sprite character-infantry"></div>
+  {{/if}}
+
+  {{#if (and (eq @tile.x 6) (eq @tile.y 9))}}
+    <div class="sprite character-infantry"></div>
+  {{/if}}
+
+  {{#if (and (eq @tile.x 5) (eq @tile.y 6))}}
+    <div class="sprite building-house"></div>
   {{/if}}
 </div>

@@ -1,4 +1,5 @@
-import BaseModel from './base'
+import BaseModel from './base';
+import Tile from './local/tile';
 
 export default class extends BaseModel {
   participants = null;
@@ -16,13 +17,13 @@ export default class extends BaseModel {
     }
     let map = this.__map__;
     if (!map) {
-      return [ [] ];
+      return [[]];
     }
     let { width, height } = map;
     let grid = [...new Array(height)].map(() => [...new Array(width)]);
     map.__tiles__.forEach(tile => {
       let { x, y } = tile;
-      grid[y][x] = tile;
+      grid[y][x] = new Tile(this, tile);
     });
 
     this.cachedGrid = grid;

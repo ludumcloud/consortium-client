@@ -1,5 +1,4 @@
 import GameModel from './base';
-import BoardGenerator from '../../map/board-generator';
 
 // eslint-disable-next-line no-unused-vars
 const sizes = {
@@ -28,15 +27,14 @@ export default class extends GameModel {
   match = null;
   activeHex = null;
 
-  constructor(match, boardShape = 'square') {
+  constructor(match) {
     super();
-
-    const width = match.size;
 
     this.id = match.id;
     this.players = [];
     this.match = match;
-    this.board = BoardGenerator.generate(width, boardShape);
+
+    this.match.game = this;
   }
 
   get size() {
@@ -52,7 +50,7 @@ export default class extends GameModel {
     };
   }
 
-  spawnPlayers(numberOfPlayers = 2) {}
+  spawnPlayers() {}
 
   /* Public Function API */
   clickHex(hex) {

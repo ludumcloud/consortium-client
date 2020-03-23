@@ -34,7 +34,7 @@
         <key>dataFormat</key>
         <string>css-simple</string>
         <key>textureFileName</key>
-        <filename></filename>
+        <filename>rpg.png</filename>
         <key>flipPVR</key>
         <false/>
         <key>pvrCompressionQuality</key>
@@ -88,9 +88,9 @@
         <key>maxTextureSize</key>
         <QSize>
             <key>width</key>
-            <int>2048</int>
+            <int>1024</int>
             <key>height</key>
-            <int>2048</int>
+            <int>1024</int>
         </QSize>
         <key>fixedTextureSize</key>
         <QSize>
@@ -102,7 +102,7 @@
         <key>algorithmSettings</key>
         <struct type="AlgorithmSettings">
             <key>algorithm</key>
-            <enum type="AlgorithmSettings::AlgorithmId">Basic</enum>
+            <enum type="AlgorithmSettings::AlgorithmId">MaxRects</enum>
             <key>freeSizeMode</key>
             <enum type="AlgorithmSettings::AlgorithmFreeSizeMode">Best</enum>
             <key>sizeConstraints</key>
@@ -169,7 +169,7 @@
             <key>trimMargin</key>
             <uint>1</uint>
             <key>trimMode</key>
-            <enum type="SpriteSettings::TrimMode">CropKeepPos</enum>
+            <enum type="SpriteSettings::TrimMode">None</enum>
             <key>tracerTolerance</key>
             <int>200</int>
             <key>heuristicMask</key>
@@ -370,10 +370,12 @@
             <key type="filename">../public/tiles/rpg/tile-snow-2.png</key>
             <key type="filename">../public/tiles/rpg/tile-stone-1.png</key>
             <key type="filename">../public/tiles/rpg/tile-stone-2.png</key>
-            <key type="filename">../public/tiles/rpg/tile-tree-empty-1.png</key>
-            <key type="filename">../public/tiles/rpg/tile-tree-empty-2.png</key>
-            <key type="filename">../public/tiles/rpg/tile-tree-empty-3.png</key>
-            <key type="filename">../public/tiles/rpg/tile-tree-empty-4.png</key>
+            <key type="filename">../public/tiles/rpg/tile-tree-empty-pointed-2.png</key>
+            <key type="filename">../public/tiles/rpg/tile-tree-empty-pointed-4.png</key>
+            <key type="filename">../public/tiles/rpg/tile-tree-empty-single-1.png</key>
+            <key type="filename">../public/tiles/rpg/tile-tree-empty-single-2.png</key>
+            <key type="filename">../public/tiles/rpg/tile-tree-empty-single-3.png</key>
+            <key type="filename">../public/tiles/rpg/tile-tree-empty-single-4.png</key>
             <key type="filename">../public/tiles/rpg/tile-tree-grass-1.png</key>
             <key type="filename">../public/tiles/rpg/tile-tree-grass-2.png</key>
             <key type="filename">../public/tiles/rpg/tile-tree-grass-3.png</key>
