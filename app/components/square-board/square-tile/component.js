@@ -27,7 +27,8 @@ export default class extends Component {
   }
 
   @action
-  selectTile() {
+  selectTile(event) {
+    event.stopPropagation();
     this.game.clickTile(this.tile);
   }
 

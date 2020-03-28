@@ -4,15 +4,15 @@
   data-state={{@tile.state}}
   onclick={{fn this.selectTile}}>
   {{#if (and (eq @tile.x 4) (eq @tile.y 8))}}
-    <div class="sprite character-infantry"></div>
+    <div class="sprite character-infantry" onclick={{fn this.selectTile}}></div>
   {{/if}}
 
   {{#if (and (eq @tile.x 6) (eq @tile.y 9))}}
-    <div class="sprite character-infantry"></div>
+    <div class="sprite character-infantry" onclick={{fn this.selectTile}}></div>
   {{/if}}
 
   {{#if (and (eq @tile.x 5) (eq @tile.y 6))}}
-    <div class="sprite building-house"></div>
+    <div class="sprite building-house" onclick={{fn this.selectTile}}></div>
   {{/if}}
 
   {{#if tile.isActive}}

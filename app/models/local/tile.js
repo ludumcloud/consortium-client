@@ -19,21 +19,24 @@ export default class extends GameModel {
 
   get adjacentPoints() {
     let { x, y } = this;
-    return [
-      [x - 1, y - 1],
-      [x, y - 1],
-      [x + 1, y - 1],
-      [x + 1, y],
-      [x + 1, y + 1],
-      [x, y + 1],
-      [x - 1, y + 1],
-      [x - 1, y]
-    ]
-      .filter(
-        ([x, y]) =>
-          x >= 0 && y >= 0 && x < this.match.size && y < this.match.size
-      )
-      .map(([x, y]) => ({ x, y }));
+    return (
+      [
+        [x - 1, y - 1],
+        [x, y - 1],
+        [x + 1, y - 1],
+        [x + 1, y],
+        [x + 1, y + 1],
+        [x, y + 1],
+        [x - 1, y + 1],
+        [x - 1, y]
+      ]
+        .filter(
+          ([x, y]) =>
+            x >= 0 && y >= 0 && x < this.match.size && y < this.match.size
+        )
+        // Flip x and y because row first
+        .map(([x, y]) => ({ y, x }))
+    );
   }
 
   get isActive() {

@@ -12,8 +12,8 @@ export default class extends GameModel {
   lookupTile(x, y) {
     const grid = this.grid;
 
-    if (grid && grid[x]) {
-      return grid[x][y];
+    if (grid && grid[y]) {
+      return grid[y][x];
     }
 
     return null;
