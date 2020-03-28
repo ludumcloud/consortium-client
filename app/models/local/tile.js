@@ -1,6 +1,11 @@
+import { tracked } from '@glimmer/tracking';
+
 import GameModel from './base';
 
 export default class extends GameModel {
+  @tracked
+  _state = '';
+
   constructor(match, tile) {
     super();
 
@@ -10,6 +15,41 @@ export default class extends GameModel {
     Object.keys(tile).forEach(key => {
       this[key] = tile[key];
     });
+  }
+
+  get adjacentPoints() {
+    let { x, y } = this;
+    return [
+      [x - 1, y - 1],
+      [x, y - 1],
+      [x + 1, y - 1],
+      [x + 1, y],
+      [x + 1, y + 1],
+      [x, y + 1],
+      [x - 1, y + 1],
+      [x - 1, y]
+    ]
+      .filter(
+        ([x, y]) =>
+          x >= 0 && y >= 0 && x < this.match.size && y < this.match.size
+      )
+      .map(([x, y]) => ({ x, y }));
+  }
+
+  get isActive() {
+    return this.state === 'active';
+  }
+
+  get isSecondary() {
+    return this.state === 'secondary';
+  }
+
+  get state() {
+    return this._state;
+  }
+
+  set state(value) {
+    return (this._state = value);
   }
 
   get isEdge() {

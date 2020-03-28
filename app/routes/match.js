@@ -10,6 +10,11 @@ export default class extends Route {
       this.transitionTo('login');
     }
 
-    return this.api.getMatch(params.id);
+    try {
+      let match = await this.api.getMatch(params.id);
+      return match;
+    } catch (err) {
+      this.transitionTo('login');
+    }
   }
 }

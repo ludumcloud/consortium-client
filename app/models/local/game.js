@@ -1,4 +1,5 @@
 import GameModel from './base';
+import Board from './board';
 
 // eslint-disable-next-line no-unused-vars
 const sizes = {
@@ -25,15 +26,16 @@ export default class extends GameModel {
   board = null;
   players = null;
   match = null;
-  activeHex = null;
+  activeTile = null;
 
   constructor(match) {
     super();
 
     this.id = match.id;
     this.players = [];
-    this.match = match;
+    this.board = new Board(match.grid);
 
+    this.match = match;
     this.match.game = this;
   }
 
@@ -53,43 +55,37 @@ export default class extends GameModel {
   spawnPlayers() {}
 
   /* Public Function API */
-  clickHex(hex) {
-    const active = this.get('activeHex');
-    if (active !== hex) {
-      this.deactivateHex(active);
-      this.activateHex(hex);
-      this.activeHex = hex;
+  clickTile(tile) {
+    const active = this.activeTile;
+    if (active !== tile) {
+      this.deactivateTile(active);
+      this.activateTile(tile);
+      this.activeTile = tile;
     } else {
-      this.deactivateHex(hex);
-      this.activeHex = null;
+      this.deactivateTile(tile);
+      this.activeTile = null;
     }
   }
 
-  activateHex(hex) {
-    if (hex) {
-      hex.state = 'active';
-      hex.coord.adjacentCoords().forEach(coord => {
-        const adjacentHex = this.board.lookupHex(coord);
-        if (adjacentHex) {
-          adjacentHex.state = 'secondary';
-        }
+  activateTile(tile) {
+    if (tile) {
+      tile.state = 'active';
+      this.board.adjacentTiles(tile).forEach(tile => {
+        tile.state = 'secondary';
       });
     }
   }
 
-  deactivateHex(hex) {
-    if (hex) {
-      hex.state = null;
-      hex.coord.adjacentCoords().forEach(coord => {
-        const adjacentHex = this.board.lookupHex(coord);
-        if (adjacentHex) {
-          adjacentHex.state = 'null';
-        }
+  deactivateTile(tile) {
+    if (tile) {
+      tile.state = null;
+      this.board.adjacentTiles(tile).forEach(tile => {
+        tile.state = null;
       });
     }
   }
 
-  lookupHex(coord) {
-    return this.board.lookupHex(coord);
+  lookupTile(coord) {
+    return this.board.lookupTile(coord);
   }
 }

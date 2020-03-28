@@ -62,8 +62,12 @@ export default class extends Service {
 
   async getMatch(id) {
     let url = `${this.host}/v1/match/${id}`;
-    let json = await this.get(url);
-    return Match.create(json);
+    try {
+      let json = await this.get(url);
+      return Match.create(json);
+    } catch (err) {
+      return reject(err);
+    }
   }
 
   async createMatch(params) {

@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
-import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
-import { later } from '@ember/runloop';
+import { inject as service } from '@ember/service';
+import { action } from '@ember/object';
 
 export default class extends Component {
   @service logger;
@@ -9,20 +9,26 @@ export default class extends Component {
   @tracked
   tileClass = null;
 
+  game = null;
+  tile = null;
+
   constructor() {
     super(...arguments);
 
-    this.setTileClass();
+    this.game = this.args.game;
+    this.tile = this.args.tile;
 
-    // Lets animate water...
-    // if (this.args.tile.biome === 'ocean') {
-    //   this.animateOceanTile();
-    // }
+    this.setTileClass();
   }
 
   get type() {
     // Weird api bug
-    return this.args.tile.biome ? this.args.tile.biome.toLowerCase() : 'beach';
+    return this.tile.biome ? this.tile.biome.toLowerCase() : 'beach';
+  }
+
+  @action
+  selectTile() {
+    this.game.clickTile(this.tile);
   }
 
   setTileClass() {
@@ -40,54 +46,9 @@ export default class extends Component {
       } else {
         tileClass = 'grass-1';
       }
-      // tileClass = 'grass-1';
-      // if (tile.isEdge) {
-      //   if (tile.isTopEdge) {
-      //     tileClass = 'grass-edge-top';
-
-      //     if (tile.isLeftEdge) {
-      //       tileClass = 'grass-edge-top-left';
-      //     } else if (tile.isRightEdge) {
-      //       tileClass = 'grass-edge-top-right';
-      //     }
-      //   } else if (tile.isBottomEdge) {
-      //     tileClass = 'grass-edge-bottom';
-      //     if (tile.isLeftEdge) {
-      //       tileClass = 'grass-edge-bottom-left';
-      //     } else if (tile.isRightEdge) {
-      //       tileClass = 'grass-edge-bottom-right';
-      //     }
-      //   } else if (tile.isLeftEdge) {
-      //     tileClass = 'grass-edge-left';
-      //   } else if (tile.isRightEdge) {
-      //     tileClass = 'grass-edge-right';
-      //   }
-      // }
     } else if (landform === 'depression') {
       if (!biome || biome === 'beach') {
         tileClass = 'sand-1';
-        // if (tile.isEdge) {
-        //   if (tile.isTopEdge) {
-        //     tileClass = 'sand-edge-top';
-
-        //     if (tile.isLeftEdge) {
-        //       tileClass = 'sand-edge-top-left';
-        //     } else if (tile.isRightEdge) {
-        //       tileClass = 'sand-edge-top-right';
-        //     }
-        //   } else if (tile.isBottomEdge) {
-        //     tileClass = 'sand-edge-bottom';
-        //     if (tile.isLeftEdge) {
-        //       tileClass = 'sand-edge-bottom-left';
-        //     } else if (tile.isRightEdge) {
-        //       tileClass = 'sand-edge-bottom-right';
-        //     }
-        //   } else if (tile.isLeftEdge) {
-        //     tileClass = 'sand-edge-left';
-        //   } else if (tile.isRightEdge) {
-        //     tileClass = 'sand-edge-right';
-        //   }
-        // }
       } else {
         tileClass = 'water-1';
       }
@@ -100,23 +61,5 @@ export default class extends Component {
     }
 
     this.tileClass = `tile-${tileClass}`;
-  }
-
-  animateOceanTile() {
-    let order = [
-      'tile-water-1',
-      'tile-water-2'
-      // 'tile-water-3',
-      // 'tile-water-4'
-    ];
-    function changeTile() {
-      let idx = order.indexOf(this.tileClass) + 1;
-      if (idx === order.length) {
-        idx = 0;
-      }
-      this.tileClass = order[idx];
-      later(changeTile.bind(this), 1000);
-    }
-    later(changeTile.bind(this), 1000);
   }
 }

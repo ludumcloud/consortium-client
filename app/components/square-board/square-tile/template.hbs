@@ -1,4 +1,8 @@
-<div class="sprite {{this.tileClass}}" data-x={{@tile.x}} data-y={{@tile.y}}>
+<div class="sprite {{this.tileClass}} {{if @tile.isActive 'active'}} {{if @tile.isSecondary 'secondary'}}"
+  data-x={{@tile.x}}
+  data-y={{@tile.y}}
+  data-state={{@tile.state}}
+  onclick={{fn this.selectTile}}>
   {{#if (and (eq @tile.x 4) (eq @tile.y 8))}}
     <div class="sprite character-infantry"></div>
   {{/if}}
@@ -9,5 +13,9 @@
 
   {{#if (and (eq @tile.x 5) (eq @tile.y 6))}}
     <div class="sprite building-house"></div>
+  {{/if}}
+
+  {{#if tile.isActive}}
+    <SquareBoard::SelectedTileMarker />
   {{/if}}
 </div>

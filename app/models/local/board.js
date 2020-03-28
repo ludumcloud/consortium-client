@@ -1,23 +1,29 @@
-import GameModel from "./base";
+import GameModel from './base';
 
 export default class extends GameModel {
   grid = null;
 
-  constructor({ grid }) {
+  constructor(grid) {
     super();
 
     this.grid = grid;
   }
 
-  lookupHex({ x, z }) {
-    const col = x + (z + (z & 1)) / 2;
-    const row = z;
+  lookupTile(x, y) {
     const grid = this.grid;
 
-    if (grid && grid.hasOwnProperty(row)) {
-      return grid[row][col];
+    if (grid && grid[x]) {
+      return grid[x][y];
     }
 
     return null;
+  }
+
+  adjacentTiles(tile) {
+    return tile.adjacentPoints
+      .map(({ x, y }) => {
+        return this.lookupTile(x, y);
+      })
+      .filter(tile => tile !== null);
   }
 }
