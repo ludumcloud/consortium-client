@@ -11,7 +11,7 @@ export default class extends Component {
   constructor() {
     super(...arguments);
 
-    later(this.changeMarker.bind(this), TIMER);
+    // later(this.changeMarker.bind(this), TIMER);
   }
 
   changeMarker() {

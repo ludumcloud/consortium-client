@@ -1,5 +1,6 @@
 import GameModel from './base';
 import Board from './board';
+import { tracked } from '@glimmer/tracking';
 
 // eslint-disable-next-line no-unused-vars
 const sizes = {
@@ -26,7 +27,14 @@ export default class extends GameModel {
   board = null;
   players = null;
   match = null;
+
+  @tracked
   activeTile = null;
+
+  @tracked
+  activeUnit = null;
+
+  _units = null;
 
   constructor(match) {
     super();
@@ -52,11 +60,45 @@ export default class extends GameModel {
     };
   }
 
+  get units() {
+    if (this._units) {
+      return this._units;
+    }
+    // Quicker lookup...
+    let units = this.match.units.reduce((acc, unit) => {
+      let containerPosition = `x${unit.position.x}y${unit.position.y}`;
+      if (!acc[containerPosition]) {
+        acc[containerPosition] = [];
+      }
+      acc[containerPosition].push(unit);
+      return acc;
+    }, {});
+    this._units = units;
+    return this._units;
+  }
+
   spawnPlayers() {}
 
-  /* Public Function API */
+  tileUnits(tile) {
+    return this.units[`x${tile.x}y${tile.y}`];
+  }
+
+  clickUnit(unit) {
+    let active = this.activeUnit;
+    if (active !== unit) {
+      this.activeUnit = unit;
+    } else {
+      this.activeUnit = null;
+    }
+  }
+
   clickTile(tile) {
     const active = this.activeTile;
+
+    if (!this.tileUnits(tile)) {
+      this.activeUnit = null;
+    }
+
     if (active !== tile) {
       this.deactivateTile(active);
       this.activateTile(tile);

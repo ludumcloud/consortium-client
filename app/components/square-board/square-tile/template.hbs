@@ -3,19 +3,23 @@
   data-y={{@tile.y}}
   data-state={{@tile.state}}
   onclick={{fn this.selectTile}}>
-  {{#if (and (eq @tile.x 4) (eq @tile.y 8))}}
-    <div class="sprite character-infantry" onclick={{fn this.selectTile}}></div>
-  {{/if}}
 
-  {{#if (and (eq @tile.x 6) (eq @tile.y 9))}}
-    <div class="sprite character-infantry" onclick={{fn this.selectTile}}></div>
-  {{/if}}
+  {{#each this.units as |unit|}}
+    <SquareBoard::Unit
+      @unit={{unit}}
+      @game={{@game}}
+      @tile={{@tile}}
+      onclick={{fn this.selectTile}} />
+  {{/each}}
 
-  {{#if (and (eq @tile.x 5) (eq @tile.y 6))}}
-    <div class="sprite building-house" onclick={{fn this.selectTile}}></div>
-  {{/if}}
-
-  {{#if tile.isActive}}
+  {{#if @tile.isActive}}
     <SquareBoard::SelectedTileMarker />
+  {{/if}}
+
+  {{#if this.showMovement}}
+    <SquareBoard::UnitMovement
+      @unit={{@game.activeUnit}}
+      @game={{@game}}
+      @title={{@tile}} />
   {{/if}}
 </div>

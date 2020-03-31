@@ -11,12 +11,40 @@
 
       > .sprite {
         position: relative;
+        overflow: visible;
 
         .select,
         .select-sm {
           position: absolute;
           top: 0;
         }
+      }
+    }
+  }
+
+  .unit-movement {
+    position: absolute;
+    z-index: 2;
+
+    top: 0;
+
+    .sprite {
+      position: absolute;
+
+      &[data-pos='left'] {
+        left: -16px;
+      }
+
+      &[data-pos='right'] {
+        right: -32px;
+      }
+
+      &[data-pos='top'] {
+        top: -16px;
+      }
+
+      &[data-pos='bottom'] {
+        bottom: -32px;
       }
     }
   }

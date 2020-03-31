@@ -290,7 +290,7 @@
             <key type="filename">../public/tiles/rpg/character-female-sm.png</key>
             <key type="filename">../public/tiles/rpg/character-female.png</key>
             <key type="filename">../public/tiles/rpg/character-infantry-sm.png</key>
-            <key type="filename">../public/tiles/rpg/character-infranty.png</key>
+            <key type="filename">../public/tiles/rpg/character-infantry.png</key>
             <key type="filename">../public/tiles/rpg/character-king-sm.png</key>
             <key type="filename">../public/tiles/rpg/character-king.png</key>
             <key type="filename">../public/tiles/rpg/character-knight-sm.png</key>
@@ -388,7 +388,9 @@
             <key type="filename">../public/tiles/rpg/tile-tree-grass-stump-2.png</key>
             <key type="filename">../public/tiles/rpg/tile-tree-grass-stump-3.png</key>
             <key type="filename">../public/tiles/rpg/tile-tree-grass-stump-4.png</key>
+            <key type="filename">../public/tiles/rpg/tile-water-1-edge-bottom.png</key>
             <key type="filename">../public/tiles/rpg/tile-water-1.png</key>
+            <key type="filename">../public/tiles/rpg/tile-water-2-edge-bottom.png</key>
             <key type="filename">../public/tiles/rpg/tile-water-2.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>

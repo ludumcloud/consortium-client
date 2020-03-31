@@ -26,6 +26,20 @@ export default class extends Component {
     return this.tile.biome ? this.tile.biome.toLowerCase() : 'beach';
   }
 
+  get units() {
+    return this.game.tileUnits(this.tile);
+  }
+
+  get showMovement() {
+    return this.hasActiveUnit && this.game.activeUnit.type === 'infantry';
+  }
+
+  get hasActiveUnit() {
+    return (
+      this.units && !!this.units.find(unit => this.game.activeUnit === unit)
+    );
+  }
+
   @action
   selectTile(event) {
     event.stopPropagation();

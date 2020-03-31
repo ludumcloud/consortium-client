@@ -7,6 +7,25 @@ export default class extends BaseModel {
 
   cachedGrid = null;
 
+  get units() {
+    return [
+      {
+        position: { x: 4, y: 8 },
+        player: 1,
+        type: 'infantry'
+      },
+      {
+        position: { x: 6, y: 9 },
+        player: 1,
+        type: 'infantry'
+      }
+    ];
+  }
+
+  get improvements() {
+    return [];
+  }
+
   get size() {
     return this.grid.length;
   }
